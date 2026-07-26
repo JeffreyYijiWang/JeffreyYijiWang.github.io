@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Jeffrey Wang's experience" />
+    <title>Jeffrey Wang</title>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.add("js");
+        try {
+          var stored = localStorage.getItem("theme");
+          var dark =
+            stored === "dark" ||
+            (!stored &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dark) root.setAttribute("data-theme", "dark");
+        } catch (e) {}
+        try {
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            sessionStorage.removeItem("page-wipe-dir");
+          } else {
+            var wipeDir = sessionStorage.getItem("page-wipe-dir");
+            if (wipeDir === "forward" || wipeDir === "back") {
+              root.classList.add("page-wipe-pending", "page-wipe-" + wipeDir);
+            }
+          }
+        } catch (e) {}
+        window.setTimeout(function () {
+          if (!root.classList.contains("entrance-ready")) {
+            root.classList.add("entrance-fallback");
+          }
+        }, 1600);
+      })();
+    </script>
+    <style id="entrance-critical">
+      html.js .site-logo,
+      html.js .site-nav li,
+      html.js .header-actions,
+      html.js .project-showcase.js-reveal > li:not(.in-view),
+      html.js .section__title.js-title-reveal:not(.is-entering),
+      html.js .exp-group__title.js-title-reveal:not(.is-entering) {
+        opacity: 0;
+      }
+      html.js .project-showcase.js-reveal > li {
+        transition:
+          opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      html.js.entrance-fallback .site-logo,
+      html.js.entrance-fallback .site-nav li,
+      html.js.entrance-fallback .header-actions,
+      html.js.entrance-fallback .project-showcase.js-reveal > li,
+      html.js.entrance-fallback .section__title.js-title-reveal,
+      html.js.entrance-fallback .exp-group__title.js-title-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html.js .site-logo,
+        html.js .site-nav li,
+        html.js .header-actions,
+        html.js .project-showcase.js-reveal > li,
+        html.js .section__title.js-title-reveal,
+        html.js .exp-group__title.js-title-reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
+    <noscript>
+      <style>
+        .site-logo,
+        .site-nav li,
+        .header-actions,
+        .project-showcase.js-reveal > li,
+        .section__title.js-title-reveal,
+        .exp-group__title.js-title-reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          animation: none !important;
+        }
+      </style>
+    </noscript>
+    <link rel="icon" type="image/gif" href="assets/cs.gif" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-logo" href="index.html">Jeffrey Wang</a>
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="experiences.html" aria-current="page">Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Toggle dark mode"
+            title="Toggle theme"
+          >
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--sun"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+              />
+            </svg>
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--moon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z" />
+            </svg>
+          </button>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+          >
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="visually-hidden">Menu</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="content-wrap">
+        <section class="section" id="experiences" aria-labelledby="experiences-heading">
+          <h2 id="experiences-heading" class="section__title js-title-reveal">Experience</h2>
+          <div class="section__body">
+            <p class="projects-intro">
+              Where and how I've been involved.
+            </p>
+          </div>
+
+          <h3 id="current-experiences-heading" class="exp-group__title js-title-reveal">Current</h3>
+          <ol
+            class="project-showcase project-showcase--timeline project-showcase--experiences js-reveal"
+            aria-labelledby="current-experiences-heading"
+          >
+
+            
+            <li>
+              <article class="project-card">
+                <div class="project-card__body exp-item">
+                  <img class="exp-org-logo" src="assets/img/scottylabs.png" alt="ScottyLabs logo" />
+                  <div class="exp-item__main">
+                    <div class="exp-header">
+                      <div class="exp-title-block">
+                        <h4 class="project-card__title">ScottyLabs @ Carnegie Mellon University</h4>
+                        <p class="exp-role exp-role--plain">Software Developer</p>
+                      </div>
+                      <div class="exp-header__right">
+                        <p class="exp-date">Sept 2024 &ndash; Present</p>
+                        <p class="exp-loc">Pittsburgh, PA</p>
+                      </div>
+                    </div>
+                    <ul class="project-card__bullets">
+                      <li>
+                        Built and maintained a Rust + Postgres backend for a scavenger hunt (<a href="https://play.google.com/store/apps/details?id=quest.cmu.twa&hl=en-US" target="_blank" rel="noopener noreferrer">O-Quest </a>) , implementing a modular handlers/services architecture and operational tooling (CSV-based challenge import; QR export pipeline)
+                      </li>
+                      <li>
+                        Developed indoor & outdoor navigation features and authentication workflows for <a href="https://maps.scottylabs.org/" target="_blank" rel="noopener noreferrer">CMU Maps </a>using Node.js and MongoDB .
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </li>
+          </ol>
+
+          <h3 id="previous-experiences-heading" class="exp-group__title js-title-reveal">Previous</h3>
+          <ol
+            class="project-showcase project-showcase--timeline project-showcase--experiences js-reveal"
+            aria-labelledby="previous-experiences-heading"
+          >
+            <li>
+              <article class="project-card">
+                <div class="project-card__body exp-item">
+                  <img class="exp-org-logo" src="assets/img/cmu-wordmark.png" alt="Carnegie Mellon Student Course logo" />
+                  <div class="exp-item__main">
+                    <div class="exp-header">
+                      <div class="exp-title-block">
+                        <h4 class="project-card__title"> Carnegie Mellon University Unity Student Course</h4>
+                        <p class="exp-role exp-role--plain">Teaching Instructor</p>
+                      </div>
+                      <div class="exp-header__right">
+                        <p class="exp-date">Sept 2025 &ndash; Present</p>
+                        <p class="exp-loc">Pittsburgh, PA</p>
+                      </div>
+                    </div>
+                    <ul class="project-card__bullets">
+                      <li>
+                       Co-developed and taught an Unity game development course covering C# programming, Unity's Entity Component System, 2D/3D asset pipelines, shaders, VFX, animation, audio, AI, networking, and programming patterns. 
+                      </li>
+                      <li>
+                         Led weekly recitations,office hours, and code reviews to grad/undergrad students.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </li>
+                      <li>
+              <article class="project-card">
+                <div class="project-card__body exp-item">
+                  <img class="exp-org-logo" src="assets/img/Center-For-Transformational-Play.png" alt="Carnegie Mellon University Center For Transformational Play Logo" />
+                  <div class="exp-item__main">
+                    <div class="exp-header">
+                      <div class="exp-title-block">
+                        <h4 class="project-card__title">Carnegie Mellon University Center For Transformational Play</h4>
+                        <p class="exp-role exp-role--plain">Software Engineer Intern</p>
+                      </div>
+                      <div class="exp-header__right">
+                        <p class="exp-date"> May 2025 &ndash; November 2025</p>
+                        <p class="exp-loc">Pittsburgh, PA</p>
+                      </div>
+                    </div>
+                    <ul class="project-card__bullets">
+                      <li>
+                        Developed  an application, <a href=" https://ctp.cs.cmu.edu/ahn" target="_blank" rel="noopener noreferrer"> Chill Rooms</a>  
+                        ,in Unity C#  for the  Allegheny Health Network
+                      </li>
+                      <li>
+                        Reduced content integration time 90% (10 min to 1 min) by building a Python CSV import and validation pipeline for dialogue, triggers, events, and item attributes.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="project-card">
+                <div class="project-card__body exp-item">
+                  <img class="exp-org-logo" src="assets/img/Software-Engineering-Institute-logo.png" alt="Carnegie Mellon University Software Engineering Institute" />
+                  <div class="exp-item__main">
+                    <div class="exp-header">
+                      <div class="exp-title-block">
+                        <h4 class="project-card__title">Carnegie Mellon University Software Engineering Institute</h4>
+                        <p class="exp-role exp-role--plain">Software Engineering Intern</p>
+                      </div>
+                      <div class="exp-header__right">
+                        <p class="exp-date">September 2024 &ndash; May 2025</p>
+                        <p class="exp-loc">Pittsburgh, PA</p>
+                      </div>
+                    </div>
+                    <ul class="project-card__bullets">
+                      <li>
+                        Rapidly prototyped a modular interactive assessment (Unity) for the DoD to evaluate AI and data literacy competencies.                      
+                      </li>
+                      <li>
+                        Collaborated with stakeholders in an Agile sprint cadence to refine requirements, prioritize scope, and deliver iterative builds aligned with KSAT practices.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="project-card">
+                <div class="project-card__body exp-item">
+                  <img class="exp-org-logo" src="assets/img/Tindoori-Labs.png" alt="Tindoori Labs Logo" />
+                  <div class="exp-item__main">
+                    <div class="exp-header">
+                      <div class="exp-title-block">
+                        <h4 class="project-card__title">Tindoori Labs</h4>
+                        <p class="exp-role exp-role--plain">Research Intern</p>
+                      </div>
+                      <div class="exp-header__right">
+                        <p class="exp-date">Aug 2023 &ndash; Aug 2024</p>
+                        <p class="exp-loc">Pittsburgh, PA</p>
+                      </div>
+                    </div>
+                    <ul class="project-card__bullets">
+                      <li>
+                         Engineered a full-stack language learning application with user authentication, personalized profiles, Duolingo-inspired progress tracking, real-time messaging, and community event management.
+
+                      </li>
+                      <li>
+                        Implemented scalable backend and frontend features, including gamification systems, social interactions, and event coordination, while collaborating with the founder on product architecture and feature planning.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </li>
+          </ol>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+    </footer>
+
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

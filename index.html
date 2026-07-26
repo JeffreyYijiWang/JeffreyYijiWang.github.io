@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Jeffrey Wang's personal website" />
+    <title>Jeffrey Wang</title>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.add("js");
+        try {
+          var stored = localStorage.getItem("theme");
+          if (stored === "dark") {
+            root.setAttribute("data-theme", "dark");
+          } else {
+            root.removeAttribute("data-theme");
+          }
+        } catch (e) {}
+        try {
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            sessionStorage.removeItem("page-wipe-dir");
+          } else {
+            var wipeDir = sessionStorage.getItem("page-wipe-dir");
+            if (wipeDir === "forward" || wipeDir === "back") {
+              root.classList.add("page-wipe-pending", "page-wipe-" + wipeDir);
+            }
+          }
+        } catch (e) {}
+        /* If main.js never runs, don't leave entrance content blank forever */
+        window.setTimeout(function () {
+          if (!root.classList.contains("entrance-ready")) {
+            root.classList.add("entrance-fallback");
+          }
+        }, 1600);
+      })();
+    </script>
+    <style id="entrance-critical">
+      /* Hide only until reveal classes/animations apply — never fight .in-view / .is-playing */
+      html.js .site-logo,
+      html.js .site-nav li,
+      html.js .header-actions,
+      html.js .hero__photo,
+      html.js .hero__name,
+      html.js .hero__meta,
+      html.js .hero__intro .social,
+      html.js .hero__aside,
+      html.js #about .about-motion:not(.is-playing),
+      html.js .project-showcase.js-reveal > li:not(.in-view),
+      html.js .interest-list.js-reveal > li:not(.in-view),
+      html.js .skill-icons.js-reveal:not(.in-view) > li,
+      html.js .section__title.js-title-reveal:not(.is-entering),
+      html.js .exp-group__title.js-title-reveal:not(.is-entering) {
+        opacity: 0;
+      }
+      /* Match stylesheet transitions so first paint → .in-view never snaps */
+      html.js .project-showcase.js-reveal > li,
+      html.js .interest-list.js-reveal > li {
+        transition:
+          opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      html.js.entrance-fallback .site-logo,
+      html.js.entrance-fallback .site-nav li,
+      html.js.entrance-fallback .header-actions,
+      html.js.entrance-fallback .hero__photo,
+      html.js.entrance-fallback .hero__name,
+      html.js.entrance-fallback .hero__meta,
+      html.js.entrance-fallback .hero__intro .social,
+      html.js.entrance-fallback .hero__aside,
+      html.js.entrance-fallback #about .about-motion,
+      html.js.entrance-fallback .project-showcase.js-reveal > li,
+      html.js.entrance-fallback .interest-list.js-reveal > li,
+      html.js.entrance-fallback .skill-icons.js-reveal > li,
+      html.js.entrance-fallback .section__title.js-title-reveal,
+      html.js.entrance-fallback .exp-group__title.js-title-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html.js .site-logo,
+        html.js .site-nav li,
+        html.js .header-actions,
+        html.js .hero__photo,
+        html.js .hero__name,
+        html.js .hero__meta,
+        html.js .hero__intro .social,
+        html.js .hero__aside,
+        html.js #about .about-motion,
+        html.js .project-showcase.js-reveal > li,
+        html.js .interest-list.js-reveal > li,
+        html.js .skill-icons.js-reveal > li,
+        html.js .section__title.js-title-reveal,
+        html.js .exp-group__title.js-title-reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
+    <noscript>
+      <style>
+        .site-logo,
+        .site-nav li,
+        .header-actions,
+        .hero__photo,
+        .hero__name,
+        .hero__meta,
+        .hero__intro .social,
+        .hero__aside,
+        #about .about-motion,
+        .project-showcase.js-reveal > li,
+        .interest-list.js-reveal > li,
+        .skill-icons.js-reveal > li,
+        .section__title.js-title-reveal,
+        .exp-group__title.js-title-reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          animation: none !important;
+        }
+      </style>
+    </noscript>
+    <link rel="icon" type="image/gif" href="assets/cs.gif" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-logo" href="#home">Jeffrey Wang</a>
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="#home" aria-current="page">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="experiences.html">Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Toggle dark mode"
+            title="Toggle theme"
+          >
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--sun"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+              />
+            </svg>
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--moon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z" />
+            </svg>
+          </button>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+          >
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="visually-hidden">Menu</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero__grid">
+          <div class="hero__photo">
+            <div class="avatar">
+              <img
+                class="avatar__image"
+                src="assets/img/headshot.png"
+                alt="Jeffrey Wang"
+              />
+            </div>
+          </div>
+          <div class="hero__intro">
+            <h1 id="hero-title" class="hero__name">Jeffrey Wang</h1>
+            <ul class="hero__meta" aria-label="Contact and study info">
+              <li>
+                <a class="meta-link" href="education.html">
+                  <span class="meta-link__text"><b>Computer Science</b> and <b>Art</b> at Carnegie Mellon University</span>
+                </a>
+              </li>
+              <li>
+                <b>Location:</b> Pittsburgh, PA [from Dallas, TX]
+              </li>
+              <li>
+                <b>Email:</b>
+                <button
+                  type="button"
+                  class="copy-email"
+                  data-email="jw8@andrew.cmu.edu"
+                  aria-label="Copy email address"
+                  title="Click to copy"
+                >
+                  <span class="copy-email__text">jw8@andrew.cmu.edu</span>
+                  <span class="copy-email__icon" aria-hidden="true">🔗</span>
+                  <span class="copy-email__tip" aria-hidden="true">Copied!</span>
+                </button>
+              </li>
+            </ul>
+            <ul class="social" aria-label="Social profiles">
+              <li>
+                <a
+                  class="social__link"
+                  href="https://www.linkedin.com/in/jeffrey-yiji-wang/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                >
+                  <svg
+                    class="social__icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="social__link"
+                  href="https://github.com/michaeliuedu"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="GitHub"
+                >
+                  <svg
+                    class="social__icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a class="social__link" href="mailto:jw8@andrew.cmu.edu" aria-label="Email">
+                  <svg
+                    class="social__icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="social__link"
+                  href="assets/resume/Jeffrey_Wang_Resume.pdf"
+                  download="Jeffrey_Wang_Resume.pdf"
+                  aria-label="Download resume"
+                  title="Download resume"
+                >
+                  <svg
+                    class="social__icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <path d="M12 18v-6" />
+                    <path d="m9 15 3 3 3-3" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+          <aside class="hero__aside" aria-labelledby="interests-heading">
+            <h2 id="interests-heading" class="aside-heading">Interests</h2>
+            <ul class="interest-list js-reveal">
+              <li>Machine Learning &amp; Reinforcement Learning</li>
+              <li>Backend &amp; Distributed Systems</li>
+              <li>Mobile &amp; Web Development</li>
+              <li>Computer Graphics</li>
+              <li>Systems Programming</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <div class="content-wrap">
+        <section class="section js-reveal" id="about" aria-labelledby="about-heading">
+          <h2 id="about-heading" class="section__title about-motion">About Me</h2>
+          <div class="section__body">
+            <p>
+              <span class="about-line about-motion" >
+               <strong>Computer Science</strong> and <strong>Art</strong> student at
+                <strong>Carnegie Mellon University</strong> building at the intersection of code and visuals.</span
+              >
+              <span class="about-line about-motion" >
+               I work  in real-time systems, <strong>full-stack development</strong>, computer graphics, <strong>data visualizations</strong> and machine learning.</span
+              >
+            </p>
+
+
+            <p>
+               <span class="about-line about-motion"
+                >Currently, I am a <strong>software engineer</strong> at Handshake and a <strong> software developer</strong> , as part of the <a href="https://scottylabs.org/" target="_blank" rel="noopener noreferrer"> <strong>ScottyLabs</strong></a> team for Carnegie Mellon's Orientation App; Previously, I was at 
+                <a href="https://www.cmu.edu/ctp/index.html" target="_blank" rel="noopener noreferrer"><strong>Center of Transformation Play</strong></a> and the
+                <a href="https://www.sei.cmu.edu/" target="_blank" rel="noopener noreferrer"><strong>Software Engineering Institute</strong> </a>.</span>
+            </p>
+
+
+            <div class="skills" aria-label="Relevant skills">
+              <ul class="skill-icons js-reveal" aria-label="Relevant skills and technologies">
+                <li data-name="Python"><i class="devicon-python-plain colored" role="img" aria-label="Python"></i></li>
+                <li data-name="C++"><i class="devicon-cplusplus-plain colored" role="img" aria-label="C++"></i></li>
+                <li data-name="Java"><i class="devicon-java-plain colored" role="img" aria-label="Java"></i></li>
+                <li data-name="C#"><i class="devicon-csharp-plain colored" role="img" aria-label="C#"></i></li>
+                <li data-name="JavaScript"><i class="devicon-javascript-plain colored" role="img" aria-label="JavaScript"></i></li>
+                <li data-name="TypeScript"><i class="devicon-typescript-plain colored" role="img" aria-label="TypeScript"></i></li>
+                <li data-name="HTML"><i class="devicon-html5-plain colored" role="img" aria-label="HTML"></i></li>
+                <li data-name="CSS"><i class="devicon-css3-plain colored" role="img" aria-label="CSS"></i></li>
+                <li data-name="React"><i class="devicon-react-original colored" role="img" aria-label="React"></i></li>
+                <li data-name="Next.js"><i class="devicon-nextjs-plain colored" role="img" aria-label="Next.js"></i></li>
+                <li data-name="Node.js"><i class="devicon-nodejs-plain colored" role="img" aria-label="Node.js"></i></li>
+                <li data-name="Tailwind CSS"><i class="devicon-tailwindcss-original colored" role="img" aria-label="Tailwind CSS"></i></li>
+                <li data-name="PyTorch"><i class="devicon-pytorch-original colored" role="img" aria-label="PyTorch"></i></li>
+                <li data-name="TensorFlow"><i class="devicon-tensorflow-original colored" role="img" aria-label="TensorFlow"></i></li>
+                <li data-name="PostgreSQL"><i class="devicon-postgresql-plain colored" role="img" aria-label="PostgreSQL"></i></li>
+                <li data-name="Dart"><i class="devicon-dart-plain colored" role="img" aria-label="Dart"></i></li>
+                <li data-name="Git"><i class="devicon-git-plain colored" role="img" aria-label="Git"></i></li>
+                <li data-name="GitHub"><i class="devicon-github-original colored" role="img" aria-label="GitHub"></i></li>
+                <li data-name="Docker"><i class="devicon-docker-plain colored" role="img" aria-label="Socker"></i></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      
+        <section class="section section--projects" id="projects" aria-labelledby="projects-heading">
+          <h2 id="projects-heading" class="section__title js-title-reveal">Selected Projects</h2>
+          <div class="section__body">
+          </div>
+
+          <ul class="project-showcase js-reveal">
+           
+          </ul>
+        </section>
+        <!-- 
+        <section class="section" id="news" aria-labelledby="news-heading">
+          <h2 id="news-heading" class="section__title js-title-reveal">Recent News</h2>
+          <ol class="news-timeline" aria-label="News and milestones">
+            <li class="news-timeline__item">
+              <time class="news-timeline__date" datetime="2025-08">Aug 2025</time>
+              <p class="news-timeline__text">
+                started computer science at carnegie mellon university.
+              </p>
+            </li>
+          </ol>
+        </section> -->
+      </div>
+    </main>
+
+    <footer class="site-footer">
+    </footer>
+
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
