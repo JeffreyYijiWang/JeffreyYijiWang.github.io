@@ -1717,7 +1717,37 @@
       clearWipePending();
       runWipe(overlay, { keep: false });
     })();
+    document.querySelectorAll(".project-card__body--clickable").forEach((body) => {
+      const openProject = () => {
+        const href = body.dataset.href;
 
+        if (href) {
+          window.location.href = href;
+        }
+      };
+
+      body.addEventListener("click", (event) => {
+        // Do not redirect when clicking an existing link or button.
+        if (event.target.closest("a, button")) {
+          return;
+        }
+
+        openProject();
+      });
+
+      body.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          // Do not activate the body when a nested link has focus.
+          if (event.target.closest("a, button")) {
+            return;
+          }
+
+          event.preventDefault();
+          openProject();
+        }
+      });
+    });
+    //clicking on project card to open link
     document.addEventListener("click", function (event) {
       if (navigating || event.defaultPrevented || event.button !== 0) return;
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {

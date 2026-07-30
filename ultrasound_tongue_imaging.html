@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="description"
+      content="Human Body Visualization project by Jeffrey Wang"
+    />
+
+    <title>Human Body Visualization | Jeffrey Wang</title>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.add("js");
+
+        try {
+          var stored = localStorage.getItem("theme");
+
+          var dark =
+            stored === "dark" ||
+            (!stored &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+          if (dark) {
+            root.setAttribute("data-theme", "dark");
+          }
+        } catch (error) {}
+
+        try {
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            sessionStorage.removeItem("page-wipe-dir");
+          } else {
+            var wipeDir = sessionStorage.getItem("page-wipe-dir");
+
+            if (wipeDir === "forward" || wipeDir === "back") {
+              root.classList.add(
+                "page-wipe-pending",
+                "page-wipe-" + wipeDir
+              );
+            }
+          }
+        } catch (error) {}
+
+        window.setTimeout(function () {
+          if (!root.classList.contains("entrance-ready")) {
+            root.classList.add("entrance-fallback");
+          }
+        }, 1600);
+      })();
+    </script>
+
+    <style id="entrance-critical">
+      html.js .site-logo,
+      html.js .site-nav li,
+      html.js .header-actions,
+      html.js .section__title.js-title-reveal:not(.is-entering) {
+        opacity: 0;
+      }
+
+      html.js.entrance-fallback .site-logo,
+      html.js.entrance-fallback .site-nav li,
+      html.js.entrance-fallback .header-actions,
+      html.js.entrance-fallback .section__title.js-title-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html.js .site-logo,
+        html.js .site-nav li,
+        html.js .header-actions,
+        html.js .section__title.js-title-reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
+
+    <noscript>
+      <style>
+        .site-logo,
+        .site-nav li,
+        .header-actions,
+        .section__title.js-title-reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          animation: none !important;
+        }
+      </style>
+    </noscript>
+
+    <link rel="icon" type="image/jpeg" href="assets/img/profile.jpg" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-logo" href="index.html">Jeffrey Wang</a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+
+            <li>
+              <a href="index.html#projects" aria-current="page">
+                Projects
+              </a>
+            </li>
+
+            <li><a href="experiences.html">Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Toggle dark mode"
+            title="Toggle theme"
+          >
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--sun"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+              />
+            </svg>
+
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--moon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z"
+              />
+            </svg>
+          </button>
+
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+          >
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="visually-hidden">Menu</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="content-wrap">
+        <article class="section project-detail">
+          <a
+            class="project-detail__back"
+            href="index.html#projects"
+          >
+            ← Back to projects
+          </a>
+
+          <header class="project-detail__header">
+            <p class="project-detail__eyebrow">
+              Computer Graphics and Visualization
+            </p>
+
+            <h1 class="section__title js-title-reveal">
+              Human Body Visualization
+            </h1>
+
+            <p class="project-detail__intro">
+              An interactive volumetric visualization system for exploring
+              human anatomy through aligned image slices, oblique cross
+              sections, skeleton extraction, and procedural visual effects.
+            </p>
+
+            <ul class="project-card__tags">
+              <li><span class="project-tag">Python</span></li>
+              <li><span class="project-tag">ModernGL</span></li>
+              <li><span class="project-tag">NumPy</span></li>
+              <li><span class="project-tag">Computer Graphics</span></li>
+            </ul>
+          </header>
+
+          <section class="project-detail__section">
+            <h2>Project Overview</h2>
+
+            <p>
+              The project converts stacks of anatomical images into a
+              three-dimensional volume that can be explored through frontal,
+              sagittal, transverse, and locally oblique planes.
+            </p>
+
+            <p>
+              I developed tools for volume preprocessing, skeletal structure
+              extraction, distance-field generation, waypoint animation, and
+              real-time GPU rendering.
+            </p>
+          </section>
+
+          <section class="project-detail__section">
+            <h2>Technical Features</h2>
+
+            <ul>
+              <li>GPU-accelerated volume rendering with ModernGL</li>
+              <li>Frontal, sagittal, and transverse slice navigation</li>
+              <li>Local oblique cross-section visualization</li>
+              <li>Skeleton and distance-field preprocessing</li>
+              <li>Animated camera and waypoint interpolation</li>
+              <li>Procedural pixel sorting and growth effects</li>
+            </ul>
+          </section>
+
+          <section class="project-detail__section">
+            <h2>Project Media</h2>
+
+            <figure>
+              <img
+                src="assets/projects/human-body-visualization/preview.png"
+                alt="Human body volume visualization interface"
+                width="1280"
+                height="720"
+                loading="lazy"
+              />
+
+              <figcaption>
+                Interactive anatomical volume and cross-section viewer.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section class="project-detail__section">
+            <h2>Links</h2>
+
+            <div class="project-card__links">
+              <a
+                class="project-link project-link--github"
+                href="YOUR_GITHUB_REPOSITORY_URL"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer"></footer>
+
+    <button
+      type="button"
+      id="back-to-top"
+      class="back-to-top"
+      aria-label="Back to top"
+    >
+      ↑
+    </button>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

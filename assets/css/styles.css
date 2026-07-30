@@ -1290,6 +1290,22 @@ html.js .interest-list.js-reveal > li.in-view,
   outline-offset: 3px;
 }
 
+.project-card__body--clickable {
+  cursor: pointer;
+}
+
+.project-card__body--clickable:hover .project-card__title,
+.project-card__body--clickable:focus-visible .project-card__title {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.project-card__body--clickable:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
 .project-carousel {
   position: relative;
   min-width: 0;
