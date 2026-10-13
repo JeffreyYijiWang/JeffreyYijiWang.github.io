@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://jeffreyyijiwang.dev/sitemap.xml
