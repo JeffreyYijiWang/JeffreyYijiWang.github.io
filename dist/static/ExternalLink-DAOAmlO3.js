@@ -1,0 +1,2 @@
+import{n as e,u as t}from"./index-2ITrnAJJ.js";var n=t();function r({children:t,className:r=``,showIcon:i=!0,...a}){return(0,n.jsxs)(`a`,{className:r,target:`_blank`,rel:`noopener noreferrer`,...a,children:[t,i&&(0,n.jsx)(e,{className:`external-link__icon`}),(0,n.jsx)(`span`,{className:`visually-hidden`,children:` (opens in a new tab)`})]})}export{r as t};
+//# sourceMappingURL=ExternalLink-DAOAmlO3.js.map

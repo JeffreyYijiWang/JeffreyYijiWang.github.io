@@ -1,0 +1,16 @@
+{
+  "name": "Jeffrey Wang — Portfolio",
+  "short_name": "Jeffrey Wang",
+  "description": "Computer graphics, visualization, software, and interactive systems by Jeffrey Wang.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#a51c30",
+  "icons": [
+    {
+      "src": "/assets/generated/headshot.webp",
+      "sizes": "any",
+      "type": "image/webp"
+    }
+  ]
+}

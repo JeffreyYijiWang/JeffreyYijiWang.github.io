@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graphics & Computer Vision | Jeffrey Wang</title>
+  <meta name="description" content="Graphics and computer vision projects by Jeffrey Wang: real-time rendering, light transport, animation, imaging, and creative coding.">
+  <link rel="canonical" href="https://jeffreyyijiwang.dev/graphics/">
+  <link rel="icon" href="/assets/img/profile.jpg">
+  <script>try { if (localStorage.getItem('theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Libre+Franklin:wght@400;500;600&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/graphics.css">
+  <script src="/assets/js/graphics.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="/">Jeffrey Wang</a>
+      <nav aria-label="Primary">
+        <a href="/">Home</a><a href="/#projects">Projects</a><a href="/graphics/" aria-current="page">Graphics</a><a href="/experiences.html">Experience</a><a href="/education.html">Education</a>
+      </nav>
+      <button type="button" class="theme-toggle" aria-label="Switch to dark mode"><span aria-hidden="true">◐</span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Jeffrey Wang / Visual computing portfolio</p>
+      <h1 id="page-title">Graphics &amp; computer vision.</h1>
+      <div class="intro-bottom">
+        <div class="intro-copy">
+          <p>I'm Jeffrey, studying <strong>Computer Science and Art at Carnegie Mellon University</strong>. I build renderers, explore how computers see, and turn data and code into visual experiences.</p>
+          <div class="intro-links"><a href="/assets/resume/Jeffrey%20Wang%20Resume.pdf">Résumé ↗</a><a href="https://github.com/JeffreyYijiWang">GitHub ↗</a><a href="https://www.linkedin.com/in/jeffrey-yiji-wang/">LinkedIn ↗</a><a href="mailto:jw8@andrew.cmu.edu">Email ↗</a></div>
+        </div>
+        <aside class="intro-aside"><p>From light transport to interactive worlds.</p><p>A collection of graphics, imaging, and creative computing projects.</p></aside>
+      </div>
+    </section>
+    <nav class="section-nav" aria-label="Jump to project collection"><a href="#rendering">Rendering</a><a href="#vision">Computer vision</a><a href="#creative">Creative computing</a><a class="back-top" href="#top">Back to top ↑</a></nav>
+    <section class="collection" id="rendering" aria-labelledby="rendering-title">
+      <div class="collection-heading"><h2 id="rendering-title">Rendering & simulation</h2><span>03 projects</span></div>
+      <article class="project" id="vulkan" aria-labelledby="vulkan-title">
+        <div class="project-layout">
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/vulkan-0.webp" aria-label="Real-time global illumination in the Vulkan renderer"><source src="/assets/graphics/vulkan-0.mp4" type="video/mp4"><a href="/assets/projects/Vulkan_render/Vulkan_sporsa_scene.gif">View animation</a></video></div><figcaption>Real-time global illumination in the Vulkan renderer · Press play to watch</figcaption></figure>
+          <div class="project-copy"><p class="project-meta">01 / C++ / Vulkan / Real-time graphics</p><h3 id="vulkan-title">Vulkan Realtime Rendering Engine</h3><p>Built a high-performance real-time renderer in C++ and Vulkan, implementing GPU programming, ray tracing, UE5 global illumination with probes, shadows, post-processing, and performance optimization through profiling and multithreading.</p><div class="project-links"><a href="https://github.com/JeffreyYijiWang/Vulkan-Render">View source ↗</a><a href="#vulkan" aria-label="Link to Vulkan Realtime Rendering Engine">Project link ↗</a></div></div>
+        </div>
+      </article>
+      <article class="project" id="caustics" aria-labelledby="caustics-title">
+        <div class="project-layout">
+          <figure><div class="project-media"><a href="/assets/projects/physics_based_rendering/final3.png" data-preview><img src="/assets/graphics/caustics-0.webp" alt="Reflective and refractive caustics rendered with Monte Carlo light transport" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Reflective and refractive caustics rendered with Monte Carlo light transport · Select image to enlarge</figcaption></figure>
+          <div class="project-copy"><p class="project-meta">02 / C++ / DIRT / Light transport</p><h3 id="caustics-title">Monte Carlo Refractive Caustics</h3><p>A physically based ray tracer built in C++ using the DIRT rendering framework to generate complex reflective and refractive caustics. The renderer combines Monte Carlo path tracing, specular manifold sampling, Newton-based light-path solving, multiple importance sampling, BVH acceleration, and multithreading to simulate realistic light transport through mirrors, glass spheres, and layered dielectric materials.</p><div class="project-links"><a href="#caustics" aria-label="Link to Monte Carlo Refractive Caustics">Project link ↗</a></div></div>
+        </div>
+        <details><summary>More images &amp; demos (4)</summary><div class="gallery">
+          <figure><div class="project-media"><a href="/assets/projects/physics_based_rendering/teapot-256spp.png" data-preview><img src="/assets/graphics/caustics-1.webp" alt="Teapot render at 256 samples per pixel" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Teapot render at 256 samples per pixel</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/physics_based_rendering/power_veach_mis-2026-03-15-03-04-01.png" data-preview><img src="/assets/graphics/caustics-2.webp" alt="Multiple importance sampling study" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Multiple importance sampling study</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/physics_based_rendering/ajax-normals-2026-02-23-19-41-34.png" data-preview><img src="/assets/graphics/caustics-3.webp" alt="Surface normal visualization" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Surface normal visualization</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/physics_based_rendering/beckmann-ref.png" data-preview><img src="/assets/graphics/caustics-4.webp" alt="Beckmann material study" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Beckmann material study</figcaption></figure>
+        </div></details>
+      </article>
+      <article class="project" id="scotty3d" aria-labelledby="scotty3d-title">
+        <div class="project-layout">
+          <figure><div class="project-media"><a href="/assets/projects/Scotty3D/render.png" data-preview><img src="/assets/graphics/scotty3d-0.webp" alt="Path-traced scene from Scotty3D" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Path-traced scene from Scotty3D · Select image to enlarge</figcaption></figure>
+          <div class="project-copy"><p class="project-meta">03 / C++ / Geometry / Animation</p><h3 id="scotty3d-title">Scotty3D</h3><p>A 3D graphics application spanning software rasterization, mesh editing, path tracing, and animation. I implemented triangle pipelines, half-edge mesh operations, BVH-accelerated ray tracing, physics systems, physically based shading, rigging, and inverse kinematics.</p><div class="project-links"><a href="#scotty3d" aria-label="Link to Scotty3D">Project link ↗</a></div></div>
+        </div>
+        <details><summary>More images &amp; demos (4)</summary><div class="gallery">
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/scotty3d-1.webp" aria-label="Inverse kinematics animation"><source src="/assets/graphics/scotty3d-1.mp4" type="video/mp4"><a href="/assets/projects/Scotty3D/iK.gif">View animation</a></video></div><figcaption>Inverse kinematics animation</figcaption></figure>
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/scotty3d-2.webp" aria-label="Particle simulation"><source src="/assets/graphics/scotty3d-2.mp4" type="video/mp4"><a href="/assets/projects/Scotty3D/particles.gif">View animation</a></video></div><figcaption>Particle simulation</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/Scotty3D/bvh.png" data-preview><img src="/assets/graphics/scotty3d-3.webp" alt="Bounding volume hierarchy visualization" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Bounding volume hierarchy visualization</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/Scotty3D/light_sampling.png" data-preview><img src="/assets/graphics/scotty3d-4.webp" alt="Light sampling study" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Light sampling study</figcaption></figure>
+        </div></details>
+      </article>
+    </section>
+    <section class="collection" id="vision" aria-labelledby="vision-title">
+      <div class="collection-heading"><h2 id="vision-title">Computer vision & imaging</h2><span>03 projects</span></div>
+      <article class="project" id="computer-vision" aria-labelledby="computer-vision-title">
+        <div class="project-layout">
+          <figure><div class="project-media"><a href="/assets/projects/CV_projects/cv_1.png" data-preview><img src="/assets/graphics/computer-vision-0.webp" alt="Computer vision study: image processing and analysis" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Computer vision study: image processing and analysis · Select image to enlarge</figcaption></figure>
+          <div class="project-copy"><p class="project-meta">04 / Python / Computer vision / Deep learning</p><h3 id="computer-vision-title">Computer Vision Studies</h3><p>A collection of computer vision projects exploring image filtering, Hough transforms, planar augmented reality, 3D reconstruction, scene recognition, neural networks, and video tracking. Built through Python-based implementations of classical vision algorithms and deep-learning techniques.</p><div class="project-links"><a href="#computer-vision" aria-label="Link to Computer Vision Studies">Project link ↗</a></div></div>
+        </div>
+        <details><summary>More images &amp; demos (4)</summary><div class="gallery">
+          <figure><div class="project-media"><a href="/assets/projects/CV_projects/cv_2.jpeg" data-preview><img src="/assets/graphics/computer-vision-1.webp" alt="Computer vision project output" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Computer vision project output</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/CV_projects/cv_3.png" data-preview><img src="/assets/graphics/computer-vision-2.webp" alt="Computer vision project output" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Computer vision project output</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/CV_projects/cv_4.png" data-preview><img src="/assets/graphics/computer-vision-3.webp" alt="Computer vision project output" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Computer vision project output</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/CV_projects/cv_5.png" data-preview><img src="/assets/graphics/computer-vision-4.webp" alt="Computer vision project output" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Computer vision project output</figcaption></figure>
+        </div></details>
+      </article>
+      <article class="project" id="human-visualization" aria-labelledby="human-visualization-title">
+        <div class="project-layout">
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/human-visualization-0.webp" aria-label="Interactive views of volumetric body imagery"><source src="/assets/graphics/human-visualization-0.mp4" type="video/mp4"><a href="/assets/projects/Human_visualization_project/tripdrict-gif.gif">View animation</a></video></div><figcaption>Interactive views of volumetric body imagery · Press play to watch</figcaption></figure>
+          <div class="project-copy"><p class="project-meta">05 / Python / OpenCV / Volumetric imagery</p><h3 id="human-visualization-title">Human Body Visualization</h3><p>An experimental anatomical visualization tool for slicing, bending, transforming, and recomposing volumetric body imagery through interactive MPR, curved surfaces, and computational effects.</p><div class="project-links"><a href="https://github.com/JeffreyYijiWang/human-body-visualization">View source ↗</a><a href="#human-visualization" aria-label="Link to Human Body Visualization">Project link ↗</a></div></div>
+        </div>
+        <details><summary>More images &amp; demos (4)</summary><div class="gallery">
+          <figure><div class="project-media"><a href="/assets/projects/Human_visualization_project/Segmentation human slices.png" data-preview><img src="/assets/graphics/human-visualization-1.webp" alt="Segmentation of anatomical slices" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Segmentation of anatomical slices</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/Human_visualization_project/curve.png" data-preview><img src="/assets/graphics/human-visualization-2.webp" alt="Curved surface visualization" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Curved surface visualization</figcaption></figure>
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/human-visualization-3.webp" aria-label="Combined anatomical viewer"><source src="/assets/graphics/human-visualization-3.mp4" type="video/mp4"><a href="/assets/projects/Human_visualization_project/combined_viewer.gif">View animation</a></video></div><figcaption>Combined anatomical viewer</figcaption></figure>
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/human-visualization-4.webp" aria-label="Top-down anatomical viewer"><source src="/assets/graphics/human-visualization-4.mp4" type="video/mp4"><a href="/assets/projects/Human_visualization_project/top_down_viewer.gif">View animation</a></video></div><figcaption>Top-down anatomical viewer</figcaption></figure>
+        </div></details>
+      </article>
+      <article class="project" id="ultrasound" aria-labelledby="ultrasound-title">
+        <div class="project-layout">
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/ultrasound-0.webp" aria-label="Ultrasound tongue imaging demonstration"><source src="/assets/graphics/ultrasound-0.mp4" type="video/mp4"><a href="/assets/projects/Ultrasound_tongue/demo.gif">View animation</a></video></div><figcaption>Ultrasound tongue imaging demonstration · Press play to watch</figcaption></figure>
+          <div class="project-copy"><p class="project-meta">06 / Real-time imaging / Recognition / Creative coding</p><h3 id="ultrasound-title">Ultrasound Tongue Imaging</h3><p>A real-time ultrasound tongue recognition system that explores an indexical reimagining of the phonetic alphabet. The project connects ultrasound imagery, recognition, and visual experiments with speech.</p><div class="project-links"><a href="https://github.com/JeffreyYijiWang/ultrasonic_tongue_imaging">View source ↗</a><a href="#ultrasound" aria-label="Link to Ultrasound Tongue Imaging">Project link ↗</a></div></div>
+        </div>
+        <details><summary>More images &amp; demos (2)</summary><div class="gallery">
+          <figure><div class="project-media"><a href="/assets/projects/Ultrasound_tongue/prints.png" data-preview><img src="/assets/graphics/ultrasound-1.webp" alt="Printed visual studies" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Printed visual studies</figcaption></figure>
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/ultrasound-2.webp" aria-label="Shader experiments using tongue imagery"><source src="/assets/graphics/ultrasound-2.mp4" type="video/mp4"><a href="/assets/projects/Ultrasound_tongue/shaders.gif">View animation</a></video></div><figcaption>Shader experiments using tongue imagery</figcaption></figure>
+        </div></details>
+      </article>
+    </section>
+    <section class="collection" id="creative" aria-labelledby="creative-title">
+      <div class="collection-heading"><h2 id="creative-title">Creative computing</h2><span>04 projects</span></div>
+      <article class="project" id="lego" aria-labelledby="lego-title">
+        <div class="project-layout">
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/lego-0.webp" aria-label="Exploring LEGO figures through t-SNE maps"><source src="/assets/graphics/lego-0.mp4" type="video/mp4"><a href="/assets/projects/Lego_pipeline/tsne_grids.gif">View animation</a></video></div><figcaption>Exploring LEGO figures through t-SNE maps · Press play to watch</figcaption></figure>
+          <div class="project-copy"><p class="project-meta">07 / Python / Blender / OpenCV / t-SNE</p><h3 id="lego-title">Generative LEGO Pipeline</h3><p>A generative pipeline that transforms LEGO minifigure models from official CAD libraries into optimized SVG illustrations. Thousands of figures can be generated, categorized, queried, and arranged into visual typologies using Blender scripting, batch processing, edge detection, and t-SNE mapping.</p><div class="project-links"><a href="https://github.com/JeffreyYijiWang/Generative-Lego-Figure-Pipeline">View source ↗</a><a href="#lego" aria-label="Link to Generative LEGO Pipeline">Project link ↗</a></div></div>
+        </div>
+        <details><summary>More images &amp; demos (4)</summary><div class="gallery">
+          <figure><div class="project-media"><a href="/assets/projects/Lego_pipeline/Post-Card.jpg" data-preview><img src="/assets/graphics/lego-1.webp" alt="LEGO figure typology postcard" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>LEGO figure typology postcard</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/Lego_pipeline/final_mosaic.png" data-preview><img src="/assets/graphics/lego-2.webp" alt="Generated minifigure mosaic" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Generated minifigure mosaic</figcaption></figure>
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/lego-3.webp" aria-label="Querying the figure collection"><source src="/assets/graphics/lego-3.mp4" type="video/mp4"><a href="/assets/projects/Lego_pipeline/querying_grid.gif">View animation</a></video></div><figcaption>Querying the figure collection</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/Lego_pipeline/output (1).png" data-preview><img src="/assets/graphics/lego-4.webp" alt="Generated figure illustrations" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Generated figure illustrations</figcaption></figure>
+        </div></details>
+      </article>
+      <article class="project" id="games" aria-labelledby="games-title">
+        <div class="project-layout">
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/games-0.webp" aria-label="Thumb War gameplay"><source src="/assets/graphics/games-0.mp4" type="video/mp4"><a href="/assets/projects/Games/thumb_war.gif">View animation</a></video></div><figcaption>Thumb War gameplay · Press play to watch</figcaption></figure>
+          <div class="project-copy"><p class="project-meta">08 / Unity / C# / Interactive worlds</p><h3 id="games-title">Unity Games &amp; Game Engines</h3><p>A collection of 3D games and interactive experiments built in Unity and C#. Explore the gameplay below, or play the games in your browser on my itch.io page.</p><div class="project-links"><a href="https://jeffreyyijiwang.itch.io/">Play on itch.io ↗</a><a href="#games" aria-label="Link to Unity Games &amp; Game Engines">Project link ↗</a></div></div>
+        </div>
+        <details><summary>More images &amp; demos (3)</summary><div class="gallery">
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/games-1.webp" aria-label="Bike of Fury gameplay"><source src="/assets/graphics/games-1.mp4" type="video/mp4"><a href="/assets/projects/Games/bike_of_fury.gif">View animation</a></video></div><figcaption>Bike of Fury gameplay</figcaption></figure>
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/games-2.webp" aria-label="Unity game experiment"><source src="/assets/graphics/games-2.mp4" type="video/mp4"><a href="/assets/projects/Games/cheese.gif">View animation</a></video></div><figcaption>Unity game experiment</figcaption></figure>
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/games-3.webp" aria-label="Unity gameplay demonstration"><source src="/assets/graphics/games-3.mp4" type="video/mp4"><a href="/assets/projects/Games/game_play.gif">View animation</a></video></div><figcaption>Unity gameplay demonstration</figcaption></figure>
+        </div></details>
+      </article>
+      <article class="project" id="ahn" aria-labelledby="ahn-title">
+        <div class="project-layout">
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/ahn-0.webp" aria-label="AHN Chill Room environment"><source src="/assets/graphics/ahn-0.mp4" type="video/mp4"><a href="/assets/projects/AHN/Building.gif">View animation</a></video></div><figcaption>AHN Chill Room environment · Press play to watch</figcaption></figure>
+          <div class="project-copy"><p class="project-meta">09 / Interactive environments / Asset pipelines</p><h3 id="ahn-title">AHN Chill Room</h3><p>A self-help mobile app created for Allegheny Health Network. My work included Firebase backend data collection and a Python CI/CD pipeline for asset production and content validation. The project brings together playful environments, character animation, and interactive activities.</p><div class="project-links"><a href="https://ctp.cs.cmu.edu/ahn">About the project ↗</a><a href="#ahn" aria-label="Link to AHN Chill Room">Project link ↗</a></div></div>
+        </div>
+        <details><summary>More images &amp; demos (4)</summary><div class="gallery">
+          <figure><div class="project-media"><a href="/assets/projects/AHN/ChillRoom_Relationship_Sketch.png" data-preview><img src="/assets/graphics/ahn-1.webp" alt="Chill Room relationship sketch" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Chill Room relationship sketch</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/AHN/minigameSketches.png" data-preview><img src="/assets/graphics/ahn-2.webp" alt="Minigame sketches" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Minigame sketches</figcaption></figure>
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/ahn-3.webp" aria-label="Character interaction"><source src="/assets/graphics/ahn-3.mp4" type="video/mp4"><a href="/assets/projects/AHN/interaction.gif">View animation</a></video></div><figcaption>Character interaction</figcaption></figure>
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/ahn-4.webp" aria-label="Exercise animation"><source src="/assets/graphics/ahn-4.mp4" type="video/mp4"><a href="/assets/projects/AHN/exercise.gif">View animation</a></video></div><figcaption>Exercise animation</figcaption></figure>
+        </div></details>
+      </article>
+      <article class="project" id="maps" aria-labelledby="maps-title">
+        <div class="project-layout">
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/maps-0.webp" aria-label="Campus navigation in CMU Maps"><source src="/assets/graphics/maps-0.mp4" type="video/mp4"><a href="/assets/projects/CMU Maps/navigation.gif">View animation</a></video></div><figcaption>Campus navigation in CMU Maps · Press play to watch</figcaption></figure>
+          <div class="project-copy"><p class="project-meta">10 / Mapping / Spatial visualization / Web development</p><h3 id="maps-title">CMU Maps</h3><p>An on-campus navigation application for Carnegie Mellon University, helping users explore campus locations. The project includes visual maps, building levels, and navigation views.</p><div class="project-links"><a href="https://github.com/ScottyLabs/maps">View source ↗</a><a href="#maps" aria-label="Link to CMU Maps">Project link ↗</a></div></div>
+        </div>
+        <details><summary>More images &amp; demos (3)</summary><div class="gallery">
+          <figure><div class="project-media"><a href="/assets/projects/CMU Maps/satillite.png" data-preview><img src="/assets/graphics/maps-1.webp" alt="Campus map overview" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>Campus map overview</figcaption></figure>
+          <figure><div class="project-media"><video controls loop muted playsinline preload="none" poster="/assets/graphics/maps-2.webp" aria-label="Exploring building levels"><source src="/assets/graphics/maps-2.mp4" type="video/mp4"><a href="/assets/projects/CMU Maps/levels.gif">View animation</a></video></div><figcaption>Exploring building levels</figcaption></figure>
+          <figure><div class="project-media"><a href="/assets/projects/CMU Maps/cmu_maps.png" data-preview><img src="/assets/graphics/maps-3.webp" alt="CMU Maps interface" loading="lazy" decoding="async" width="1200" height="900"></a></div><figcaption>CMU Maps interface</figcaption></figure>
+        </div></details>
+      </article>
+    </section>
+    <section class="contact" aria-labelledby="contact-title"><p class="eyebrow">Get in touch</p><h2 id="contact-title">Let's talk graphics.</h2><p>Interested in my work? <a href="mailto:jw8@andrew.cmu.edu">Send me an email</a> or <a href="/assets/resume/Jeffrey%20Wang%20Resume.pdf">read my résumé</a>.</p></section>
+  </main>
+  <footer><div class="footer-inner"><span>Jeffrey Wang · Graphics &amp; computer vision</span><a href="#top">Back to top ↑</a></div></footer>
+  <dialog class="lightbox" aria-label="Project image preview"><button type="button" autofocus>Close ×</button><img alt=""><p></p></dialog>
+</body>
+</html>
